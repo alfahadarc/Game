@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Report</h1>
+<div mat-dialog-content>
+  <p>What's your report for current photo?</p>
+  <mat-form-field>
+    <mat-label>Causees</mat-label>
+    <input matInput #report />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="save(report.value)" cdkFocusInitial>Ok</button>
+</div>

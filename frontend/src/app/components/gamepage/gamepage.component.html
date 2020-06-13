@@ -1,0 +1,78 @@
+<body>
+  <div class="sky">
+    <img class="cloud" src="../../assets/photo/cloud.png" />
+    <img class="cloud" src="../../assets/photo/cloud.png" />
+    <img class="birdtwo" src="../../assets/photo/bird2.png" />
+    <img class="bird" src="../../assets/photo/bird2.png" />
+
+    <img class="life" [hidden]="heart_1" src="../../assets/photo/love2.png" />
+    <img class="life" [hidden]="heart_2" src="../../assets/photo/love2.png" />
+    <img class="life" [hidden]="heart_3" src="../../assets/photo/love2.png" />
+
+    <span id="pauseback" class="material-icons" (click)="pauseback()">
+      pause
+    </span>
+    <span id="playback" class="material-icons" (click)="playback()">
+      play_arrow
+    </span>
+  </div>
+
+  <div [hidden]="isvisibleRules">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>The Game</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li>Hit🔨 "Mario🚴‍♂️ " to gain 10 points.</li>
+          <li>Hit🔨 "Luigi🚵 " to gain 5 points.</li>
+          <li>Don't 💀 Hit the road you will loose life💘.</li>
+          <li>if you can beat the Highest Score you can UPLOAD your PHOTO🤠</li>
+          <li>Current highscore is {{ highScore }} by {{ highScorePlayer }}</li>
+          <li>The photo is {{ highScorePlayer }}'s</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="hideRules()">
+          STAT TO PLAY
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <input id="score" type="text" name="score" readonly [value]="point" />
+
+  <div class="grass"></div>
+
+  <div class="tree">
+    <img class="tree3" src="../../assets/photo/tree3.png" />
+    <img class="tree5" src="../../assets/photo/tree3.png" />
+    <img class="playerphoto" src="{{ backendphoto }}" border="3" />
+  </div>
+
+  <div id="die" [hidden]="isvisibleDie" style="z-index: 3;">
+    Flat tire!!!!<br /><span id="final" [innerHTML]="point">lol</span>
+  </div>
+
+  <div id="road" class="road" (click)="road()" style="z-index: 1;">
+    <div class="lines"></div>
+    <img
+      id="mario"
+      (click)="mario()"
+      class="mario"
+      src="../../assets/photo/mario.png"
+    />
+    <img
+      id="luigi"
+      (click)="luigi()"
+      class="luigi"
+      src="../../assets/photo/luigi.png"
+    />
+  </div>
+
+  <div class="footer" style="z-index: 2;">
+    <span class="material-icons">
+      copyright
+    </span>
+    copyright by AL FAHAD & AL SUAD
+  </div>
+</body>

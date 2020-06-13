@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <span>You have scored {{ point }} {{ title }} </span>
+</mat-toolbar>
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <form [formGroup]="createForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          class="name"
+          matInput
+          placeholder="Ex. Pizza"
+          formControlName="name"
+          #name
+        />
+      </mat-form-field>
+
+      <div [hidden]="isvisibleImage">
+        <label>Image</label><br />
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+
+      <input
+        matInput
+        readonly
+        hidden
+        type="number"
+        formControlName="score"
+        [value]="point"
+        #score
+      />
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      (click)="addGamedata(name.value, score.value)"
+    >
+      Done
+    </button>
+    <button mat-raised-button color="primary" (click)="showList()">
+      Scoreboard
+    </button>
+    <button mat-raised-button color="primary" (click)="replay()">
+      Replay</button
+    ><br /><br />
+    <button mat-raised-button color="warn" (click)="openDialog()">
+      Report
+    </button>
+  </mat-card-actions>
+</mat-card>
